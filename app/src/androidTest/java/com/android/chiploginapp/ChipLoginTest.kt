@@ -63,6 +63,8 @@ class ChipLoginTest {
         Espresso.closeSoftKeyboard()
         onView(withId(R.id.login_btn))
             .perform(click())
+        onView(withText("Login Successful")).
+        inRoot(ToastMatcher().apply { matches(isDisplayed()) })
         }
 
     @Test
@@ -76,6 +78,8 @@ class ChipLoginTest {
         Espresso.closeSoftKeyboard()
         onView(withId(R.id.login_btn))
             .perform(click())
+        onView(withText("Login Failed")).
+        inRoot(ToastMatcher().apply { matches(isDisplayed()) })
     }
 
     }
